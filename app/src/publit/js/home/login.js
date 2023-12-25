@@ -11,4 +11,12 @@ function login(){
         id : id.value,
         password : password.value,
     };
+
+    fetch("/login", {
+        method: "POST",
+        headers:{
+            "Content-Type":"application/json"//json 파일 표현시 headers로 표현할 수 있다
+        },
+        body: JSON.stringify(req)
+    })
 }
