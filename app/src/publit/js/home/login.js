@@ -18,5 +18,6 @@ function login(){
             "Content-Type":"application/json"//json 파일 표현시 headers로 표현할 수 있다
         },
         body: JSON.stringify(req)
-    })
+    }).then((res) => res.json())
+    .then(console.log);
 }
