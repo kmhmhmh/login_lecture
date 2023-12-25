@@ -1,5 +1,14 @@
 "use strict";
 
-console.log("hello");
+const id = document.querySelector("#id"),
+    password = document.querySelector("#password"),
+    loginBtn = document.querySelector("button");
 
-console.log("bye");
+loginBtn.addEventListener("click", login);
+
+function login(){
+    const req = {
+        id : id.value,
+        password : password.value,
+    };
+}
