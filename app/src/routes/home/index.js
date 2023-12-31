@@ -6,7 +6,6 @@ const router = express.Router();
 const ctrl = require("./home.ctrl");
 
 router.get('/', ctrl.output.home);
-
 router.get('/login', ctrl.output.login)
 router.post('/login', ctrl.process.login)
 //로그인을 처리해야 됨으로 process 함수를 이용한다.
