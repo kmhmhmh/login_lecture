@@ -1,5 +1,6 @@
 "use strict";
 
+const UserStorab = require('../../model/UserStorab');
 
 
 const output={
@@ -13,31 +14,26 @@ const output={
     
 };
 
-const users = {
-    id:["woorimIT", "나개발", "김팀장"],
-    password:["1234","1234","12343"],
-};
+
 
 const process={
     login: (req,res)=>{
         const id = req.body.id,
             password=req.body.password;
        
-        
+        const users = UserStorab.getUsers('id','password');
 
+        const response={};
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
             if(users.password[idx]===password){
-                return res.json({
-                    success:true,
-                });
+                response.success = true;
+                return res.json(response);
             }
         }
-
-        return res.json({
-            success: false,
-            msg:"로그인에 실패하셨습니다!",
-        })
+        response.success = false;
+        response.msg="로그인에 실패하셨습니다!";
+        return res.json(response);
     },
 };
 
