@@ -1,4 +1,4 @@
-
+"use strict";
 
 class UserStorab{
     static #users = {

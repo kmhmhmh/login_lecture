@@ -1,3 +1,4 @@
+"use strict";
 
 const UserStorab=require("./UserStorab")
 
@@ -10,12 +11,12 @@ class User{
         const body=this.body
         const {id, password} =UserStorab.getUserInfo(body.id);
         if(id){
-            if(id === body.id && password===body.password){
+            if(id === body.id && password === body.password){
                 return{success:true};
             }
-            return{success:false, msg:"비밀번호가 틀렸습니다."}
+            return{success:false, msg:"비밀번호가 틀렸습니다."};
         }
-        return{success:false, mag:"존재하지 않는 아이디입니다."}
+        return{success:false, msg:"존재하지 않는 아이디입니다."};
     }
 }
 
