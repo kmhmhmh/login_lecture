@@ -7,9 +7,9 @@ class User{
         this.body=body;
     }
 
-    login(){
+    async login(){
         const client=this.body
-        const {id, password} =UserStorab.getUserInfo(client.id);
+        const{id, password}=await UserStorab.getUserInfo(client.id);
         if(id){
             if(id === client.id && password === client.password){
                 return{success:true};
